@@ -24,5 +24,4 @@ Create a new user and generate a password
 
 Click check all so that the user has global access
 
-There now should be a database and user set up.  The next step is to install WordPress.
-
+There now should be a database and user set up.  The next step is to install WordPress.`

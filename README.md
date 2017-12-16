@@ -10,8 +10,8 @@ I have basic knowledge of CMSs (some Drupal experience), but I've never looked i
 is an important skill to have on top of my other Front-End Development skills.  My goal is to get enough knowledge to start my own
 WordPress projects so I can display I have the ability to learn WordPress or any other technologies I would need on the job.
 
-**Table of Contents**
-[Prerequisites - Beginning WordPress Track](#prerequisites-beginning-wordpress-track)
+**Table of Contents**       
+[Prerequisites - Beginning WordPress Track]()       
 
 
 

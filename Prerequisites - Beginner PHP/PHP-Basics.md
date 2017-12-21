@@ -63,3 +63,25 @@ echo $kilograms;
 echo "kg";
 ?>
 ```
+
+## Strings
+
+**Example of using a string within quotes**
+```php
+<?php
+$name = 'Xavier';
+$string_one = "Hello $name";
+echo $string_one;
+?>
+```
+
+**String Concatenation**
+
+In PHP strings are concatenated using ```.```
+```php
+<?php
+$name = 'Xavier';
+$string_one = 'Hello ';
+echo $string_one . $name . "\n";
+?>
+```

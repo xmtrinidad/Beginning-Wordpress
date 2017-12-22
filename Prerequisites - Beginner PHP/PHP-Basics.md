@@ -85,3 +85,42 @@ $string_one = 'Hello ';
 echo $string_one . $name . "\n";
 ?>
 ```
+
+## PHP and HTML
+
+Example of h1 tag using PHP:
+```php
+<h1><?php echo 'Xavier Trinidad' ?></h1>
+```
+
+In order for the PHP to render the content within the tag, the file extension for file needs to be .php
+
+## Using PHP with HTML to keep code DRY
+
+Define a PHP variable at the top:
+```php
+<?php $display_name = 'Xavier Trinidad'; ?>
+```
+
+Then use the variable throughout the HTML where needed
+```php
+<h1><?php $display_name ?></h1>
+<footer><?php $display_name; ?></footer>
+```
+
+## Using a PHP Function
+
+```php
+<section class="footer text-center">
+      &copy; <?php echo date('Y'); ?> <?php echo $display_name ?>
+</section>
+```
+
+Using the *date()* function along with the ```Y``` parameter will display the current year.
+
+##  Include
+
+Including PHP from other files:
+```php
+<?php include 'inc/units.php'; ?>
+```

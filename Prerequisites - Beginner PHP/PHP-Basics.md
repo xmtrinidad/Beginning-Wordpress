@@ -13,6 +13,7 @@ In other words, the server sends back plain HTML.  Viewing the source code withi
 [PHP with HTML](#php-with-html)       
 [Making a list from an Array](#making-a-list-from-an-array)       
 [Associative Arrays](#associative-arrays)       
+[Loops](#loops)       
 
 ## PHP Code
 
@@ -166,3 +167,37 @@ In this example, 'foo' is the key and it points to the value and 'bar' is the ke
 ```
 
 Would place a ```<b>bar</b>``` tag into it.
+
+## Loops
+
+PHP uses typical loops found in other programming languages like JavaScript
+
+**while loop example**
+```php
+<?php $count = 0;
+    while ($count < 10) {
+        echo "<span>count is $count, </span>";
+        $count++;
+    }
+?>
+```
+
+**for loop**
+```php
+<?php 
+    for ($x = 1; $x <= 10; $x++) {
+        echo "<p>This is a for loop item $x<p>";
+    }
+?>
+```
+
+**foreach loop**
+```php
+<ul>
+    <?php
+        foreach ($list as $item) {
+            echo "<li>$item</li>";
+        }
+    ?>
+</ul>
+```

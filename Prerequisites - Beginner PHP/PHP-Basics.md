@@ -6,6 +6,14 @@ PHP is a Server Side Language -- The code is processed on the web server.  The w
 
 In other words, the server sends back plain HTML.  Viewing the source code within a web browser will not show any PHP code, only the HTML that the server outputs after processing the PHP program.
 
+**Table of Contents**       
+[PHP Code](#php-code)       
+[Variables](#variables)       
+[Strings](#strings)       
+[PHP with HTML](#php-with-html)       
+[Making a list from an Array](#making-a-list-from-an-array)       
+[Associative Arrays](#associative-arrays)       
+
 ## PHP Code
 
 Placed in code blocks like HTML:
@@ -16,12 +24,12 @@ Placed in code blocks like HTML:
 ```
 White space is ignored in PHP like in HTML.
 
-## PHP Comments
+**Comments**
 
 * Single line comments: ```// This is a single line comment```
 * Multi-line comments: ```/* Multiline comments can go in here */```
 
-## Variables in PHP
+## Variables
 
 Variables in PHP always begin with a ```$``` followed by an ```_``` or a letter.
 
@@ -33,7 +41,7 @@ A variable cannot begin with a number.
 * float -- $myFloat = 2.25;
 * string -- $myString = 'Hellow World';
 
-## Determining type of variable in PHP
+### Determining type of variable in PHP
 
 Using the ```var_dump()``` function, the type of variable can be shown:
 ```php
@@ -46,7 +54,7 @@ var_dump( '1' );
 ?>
 ```
 
-## Basic Unit Converter in PHP
+### Basic Unit Converter in PHP
 ```php
 <?php
 // number in pounds we want to convert to kilograms
@@ -86,7 +94,7 @@ echo $string_one . $name . "\n";
 ?>
 ```
 
-## PHP and HTML
+## PHP with HTML
 
 Example of h1 tag using PHP:
 ```php
@@ -95,7 +103,7 @@ Example of h1 tag using PHP:
 
 In order for the PHP to render the content within the tag, the file extension for file needs to be .php
 
-## Using PHP with HTML to keep code DRY
+### Using PHP with HTML to keep code DRY
 
 Define a PHP variable at the top:
 ```php
@@ -108,7 +116,7 @@ Then use the variable throughout the HTML where needed
 <footer><?php $display_name; ?></footer>
 ```
 
-## Using a PHP Function
+### Using a PHP Function
 
 ```php
 <section class="footer text-center">
@@ -118,9 +126,43 @@ Then use the variable throughout the HTML where needed
 
 Using the *date()* function along with the ```Y``` parameter will display the current year.
 
-##  Include
+###  Include
 
 Including PHP from other files:
 ```php
 <?php include 'inc/units.php'; ?>
 ```
+
+## Making a list from an Array
+
+```php
+$myArr = ['Arr Item 1'];
+  array_push($myArr, 'Arr Item 2');
+  $list = 
+  "
+  <ul>
+    <li>$myArr[0]</li>
+    <li>$myArr[1]</li>
+  </ul>
+  "
+  ```
+
+  This example always uses the *array_push* function to add an item to the end of the array.  A list of PHP array functions can be found [here](http://php.net/manual/en/ref.array.php).
+
+  ## Associative Arrays
+
+  ```php
+  //Associative Arrays
+$array = [
+    "foo" => "<b>bar</b>",
+    "bar" => "<i>foo</i>",
+];
+```
+
+In this example, 'foo' is the key and it points to the value and 'bar' is the key that points to its associated value.  The following line inserted into HTML:
+
+```php
+<?php echo $array['bar'] ?>
+```
+
+Would place a ```<b>bar</b>``` tag into it.

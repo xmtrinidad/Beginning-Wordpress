@@ -13,7 +13,8 @@ In other words, the server sends back plain HTML.  Viewing the source code withi
 [PHP with HTML](#php-with-html)       
 [Making a list from an Array](#making-a-list-from-an-array)       
 [Associative Arrays](#associative-arrays)       
-[Loops](#loops)       
+[Loops](#loops)     
+[Functions](#Functions)
 
 ## PHP Code
 
@@ -201,3 +202,38 @@ PHP uses typical loops found in other programming languages like JavaScript
     ?>
 </ul>
 ```
+
+## Functions
+
+Just like JavaScript, PHP has almost the same structure for functions:
+```php
+<?php 
+    function hello() {
+        echo '<p>Hello, World! Function!!</p>';
+    }
+
+    function helloParam($name) {
+        echo "<p>Hello $name</p>";
+    }
+?>
+```
+
+The difference is that ```$``` is required for variables.
+
+## Basic Error Handling
+
+**Types of Errors**
+1.  Notice
+    * Will not stop execution of the script, but indicates something is not being done correctly
+
+2.  Warning
+    *  Something is being done wrong and will cause problems so address as soon as possible; will not stop execution of the script
+
+3.  Fatal error
+    * Logical or syntax error that prevents the script from being understood.  THese types of errors will stop the execution of a script.
+
+
+**Displaying Errors On Screen**
+1.  In the php.ini file
+2.  In the .htaccess file on your web server
+3.  From your own PHP code

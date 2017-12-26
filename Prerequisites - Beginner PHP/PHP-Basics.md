@@ -15,6 +15,8 @@ In other words, the server sends back plain HTML.  Viewing the source code withi
 [Associative Arrays](#associative-arrays)       
 [Loops](#loops)     
 [Functions](#Functions)
+[Basic Error Handling](#basic-error-handling)       
+[_GET Variables](#get-variables)       
 
 ## PHP Code
 
@@ -233,7 +235,81 @@ The difference is that ```$``` is required for variables.
     * Logical or syntax error that prevents the script from being understood.  THese types of errors will stop the execution of a script.
 
 
-**Displaying Errors On Screen**
+**Displaying Errors On Screen**     
 1.  In the php.ini file
 2.  In the .htaccess file on your web server
 3.  From your own PHP code
+
+The instructions to display errors on the Team Tree House tutorials weren't quite clear enough so after doing my research I found a [thread on Stack Overflow](https://stackoverflow.com/questions/14581460/why-mamp-doesnt-display-errors) that discusses how to display errors
+
+1.  Navigate to the MAMP application
+
+In my case, the MAMP folder was inside the C: drive
+
+2.  Inside the MAMP folder go to the *conf* folder then navigate to the folder of the PHP version MAMP is using.
+
+To find out what version of PHP the MAMP application is using, launch MAMP, click "Open start page" on the toolbar of the page that opens click *phpInfo*.  The page redirects to information about PHP, including the version being used with MAMP.
+
+3.  Open the *php.ini* file within the version file.
+
+The php.ini file was the only file within PHP version folder.
+
+4.  When the php.ini opens in whatever program is chosen to open it, search for *display_errors*
+
+I used VS Code to open the file and used the *ctrl+f* shortcut to search for it
+
+5.  Turn *display_errors = off* to *display_errors = on* and save.
+
+6.  Restart MAMP
+
+## _GET Variables
+
+In a web URL, a GET request would looking something like:
+```http://<DOMAIN>/catalog.php?cat=books```
+
+Variables added to the URL in this way get sent to the server along with the request for the web page.
+
+The variable can be accessed with PHP using *$_GET["cat"]*
+
+"cat" can be any name given when linked in the HTML/PHP
+```php
+<ul class="nav">
+    <li class="books"><a href="catalog.php?cat=books">Books</a></li>
+    <li class="movies"><a href="catalog.php?cat=movies">Movies</a></li>
+    <li class="music"><a href="catalog.php?cat=music">Music</a></li>
+    <li class="suggest"><a href="suggest.php">Suggest</a></li>
+</ul>
+```
+
+Below is an example of displaying conditional data using *$_GET*
+```php
+<?php 
+$pageTitle = "Full Catalog";
+
+if ($_GET["cat"] == "books") {
+        $pageTitle = "Books";
+    } else if ($_GET["cat"] == "movies") {
+        $pageTitle = "Movies";
+    } else if ($_GET["cat"]== "music") {
+        $pageTitle = "Music";
+    }
+?>
+```
+
+Using this implementation, an error would be displayed if the url didn't contain any GET information, for example if the url looked like ```http://<DOMAIN>/catalog.php```
+an *undefined* notice would be displayed.
+
+To avoid this, the *isset()* function is used to check for undefined links:
+```php
+$pageTitle = "Full Catalog";
+
+if (isset($_GET["cat"])) {
+    if ($_GET["cat"] == "books") {
+        $pageTitle = "Books";
+    } else if ($_GET["cat"] == "movies") {
+        $pageTitle = "Movies";
+    } else if ($_GET["cat"]== "music") {
+        $pageTitle = "Music";
+    }
+}
+```
